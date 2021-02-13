@@ -1,0 +1,150 @@
+body {
+    background-color: #434343;
+    overflow: hidden;
+}
+#content-box {
+    width: 600px;
+    height: 680px;
+    overflow: scroll;
+    box-sizing: content-box;
+}
+#anime-block {
+    padding: 5px;
+    margin-top: 10px;
+    width: 583px;
+    height: 125px;
+    background-color: rgba(0,0,0,0.5);
+    border-top: 2px solid #848484;
+}
+#img-block {
+    width: 100px;
+    margin: 0;
+}
+#ani-img {
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid #434343;
+    user-select: none;
+    object-fit: cover;
+}
+#watch-btn {
+    position: relative;
+    left: 13.5%;
+    top: 10px;
+    border: 2px solid silver;
+    border-radius: 15%;
+    padding: 3px;
+    color: silver;
+    transform-origin: center;
+    transition: .25s linear;
+    background: linear-gradient(to bottom right, black 50%, #E8E8E8 25%);
+    background-size: 300% 250%;
+    background-position:left top;
+    user-select: none;
+}
+#watch-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    color: black;
+    border: 2px solid #E8E8E8;
+    background-position:right bottom;
+}
+#watch-btn:focus {
+    outline: 0;
+}
+#ani-title {
+    display: inline-block;
+    width: 75%;
+    height: 50px;
+    position: relative;
+    left: 15%;
+    bottom: 110px;
+    font-size: 20px;
+    color: #E8E8E8;
+}
+#delete {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    bottom: 195px;
+    user-select: none;
+}
+#delete:hover {
+    cursor: pointer;
+}
+#epi-counter {
+    display: inline-block;
+    width: 75%;
+    position: relative;
+    left: 25%;
+    bottom: 110px;
+    color: #E8E8E8;
+}
+#mal-link {
+    color: turquoise;
+    display: inline-block;
+    position: relative;
+    bottom: 110px;
+    left: 25px;
+    margin: 0;
+    font-weight: 900;
+    text-decoration: none;
+    user-select: none;
+}
+#mal-link:hover {
+    cursor: pointer
+}
+#anilist-link {
+    color: blueviolet;
+    display: inline-block;
+    position: relative;
+    bottom: 110px;
+    left: 25px;
+    margin: 0;
+    margin-right: 10px;
+    font-weight: 900;
+    text-decoration: none;
+    user-select: none;
+}
+#anilist-link:hover {
+    cursor: pointer
+}
+#addbtn {
+    background: #000000;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    user-select: none;
+    transition-duration: 250ms;
+}
+#addsvg {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    user-select: none;
+    transition-duration: 250ms;
+}
+#addbtn:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-track {
+    background: black; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #860F0F;
+  }   
+::-webkit-scrollbar-thumb {
+    background: rgb(51, 49, 49);
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/content.css"/>
+    <script src="js/header.js"></script>
+    <script src="js/content.js"></script>
+    <title>AniTracker</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div id="header">
+        <h1 id="title"><span>Ani</span>Tracker</h1>
+        <img src="assets/SVG/close.svg" alt="close" id="close" onclick="closeWin()" />
+        <img src="assets/SVG/min.svg" alt="minimize" id="min" onclick="minimize()" />
+      </div>
+      <div id="content-box">
+        <div id="content">
+        </div>
+        <div id="addbtn">
+          <img src="assets/SVG/add.svg" alt="add" id="addsvg" onclick="openAddWindow()"/>
+        </div>
+        </div>
+    </div>
+    <audio id="audioDiv" src="assets/Sounds/tuturu.mp3"></audio>
+  </body>
+</html>

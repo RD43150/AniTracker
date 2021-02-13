@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <script src="js/addWin.js"></script>
+    <link rel="stylesheet" href="css/add.css">
+</head>
+<body>
+    <div id="add">
+        <h1 id="addtitle">Add Anime</h1>
+        <input type="text" placeholder="Full Anime Name" id="animeName" oninput="changeData(this,'name')" autoFocus/>
+        <input type="text" placeholder="Streaming site link, eg: https://www.crunchyroll.com/en-gb/relife" id="siteLink" onInput="changeData(this,'siteLink')"/>
+        <div id="delayField">
+          <input type="checkbox" id="delayCheck" onchange="check(this)"></input>
+          <label id="delayLabel">Delay: </label>
+          <input type="number" id="delayVal" max="24" disabled="true" oninput="changeData(this,'delay')"></input>
+          <label id="delayHour">h</label>
+        </div>
+        <button id="btn" onclick="findAndShowAnime()">Add</button>
+        <div id="loader"></div>
+        <span id="err-title">*Can't find anime, make sure the anime is still airing</span>
+        <span id="err-req">*Something went wrong with the network!</span>
+        <span id="err-delay">*Maximum delay is 100!</span>
+    </div>
+</body>
+</html>

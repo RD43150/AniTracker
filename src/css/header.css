@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+}
+#header {
+    background: #282828;
+    overflow: hidden;
+}
+#title {
+    color: #E8E8E8;
+    font-size: 25px;
+    margin: 5px;
+    padding-right: 60%;
+    float: left;
+    user-select: none;
+    -webkit-app-region: drag;
+}
+#title span {
+    color: #860F0F;
+    font-size: 30px;
+    position: relative;
+    top: 0px;
+    -webkit-app-region: drag;
+}
+#min {
+    width: 20px;
+    padding: 18px 10px;
+    float: right;
+}
+#close {
+    width: 20px;
+    padding: 10px;
+    float: right;
+}
+
+#title:hover {
+    cursor: pointer;
+}
+#close:hover {
+    background: red;
+    cursor: pointer;
+}
+#min:hover {
+    background: gray;
+    cursor: pointer;
+}

@@ -1,0 +1,151 @@
+body {
+    overflow: hidden;
+    margin: 0;
+}
+#add {
+    background: #484848;
+    width: 400px;
+    height: 330px;
+    margin: 0;
+}
+#addtitle {
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    background:#282828;
+    color: white;
+    padding: 10px 0px;
+    -webkit-app-region: drag;
+}
+#animeName {
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: #484848;
+    color: white;
+    position: relative;
+    margin-top: 10%;
+    margin-left: 10%;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#siteLink {
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: #484848;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-top: 2%;
+    margin-left: 5%;
+    font-size: 12.5px;
+    display: block;
+    -webkit-user-select: none;
+}
+#animeName::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+#siteLink::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+#delayField {
+    margin-top: 20px;
+    margin-left: 26%;
+}
+#delayCheck {
+    border: 2px solid #E8E8E8;
+    transition: 100ms;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+}
+#delayCheck:hover {
+    cursor: pointer;
+}
+#delayCheck:checked {
+    color: red;
+    background-color: #E8E8E8;
+}
+#delayLabel {
+    color: #000000;
+    font-size: 20px;
+    padding-left: 10px;
+}
+#delayHour {
+    color: #000000;
+    font-size: 20px;
+    padding-left: 5px;
+}
+#delayVal {
+    width: 60px;
+    position: relative;
+    bottom: 3px;
+}
+*:focus {
+    outline: 0;
+}
+#btn {
+    position: relative;  
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 5%;
+    font-size: 20px;
+    background:  #484848;
+    color: white;
+    border: 1px solid white;
+    font-size: 30px;
+    padding: 05px 130px;
+    border-radius: 0%;
+}
+#btn:hover {
+    cursor: pointer;
+    background:  white;
+    color: #484848;
+    border: 1px dotted black;
+}
+#btn:focus {
+    outline: 0;
+}
+#addtitle:hover {
+    cursor: default;
+}
+span {
+    color: red;
+    position: relative;
+    top: 10px;
+}
+#loader {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+    left: 45%;
+    top: 4.5%;
+    border: 5px dotted white;
+    animation: spin 1.5s ease-out infinite;
+    display: none;
+}
+  
+@keyframes spin {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(360deg) }
+}
+#err-title,#err-req,#err-delay {
+    font-size: 12px;
+    display: none;
+}
+#err-title {
+    left: 18%;
+}
+#err-req {
+    left: 25%;
+}
+#err-delay {
+    left: 35%;
+    
+}

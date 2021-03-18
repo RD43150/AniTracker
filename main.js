@@ -1,3 +1,4 @@
+//fix "db/data.json not found", check if startup works and push it as final
 //const { exec } = require('child_process')
 const { shell, ipcRenderer, nativeImage } = require('electron');
 const electron = require('electron');
@@ -6,7 +7,7 @@ const {app, BrowserWindow, ipcMain, Notification, Menu, Tray} = electron;
 const path = require('path'),
       fs = require('fs'),
       axios = require('axios'),
-      isDev = require('isdev'),
+      isDev = require('electron-is-dev'),
       DATA_FILE_PATH = path.join(__dirname,isDev ? 'db/data.json' : '../db/data.json') 
       CONVERT_H_TO_MS = 3600000,
       auto_launch = require('auto-launch')
@@ -29,18 +30,18 @@ if (!gotTheLock) {
 
 function createWindow() {
   const screenSize = electron.screen.getPrimaryDisplay().size;
-  let autoLaunch = new auto_launch({
+  /*let autoLaunch = new auto_launch({
     name: 'AniTracker',
     path: app.getPath('exe'),
     isHidden: true
-  });
+  });*/
 
   if (!fs.existsSync(DATA_FILE_PATH))
     createDataFile()
     
-  autoLaunch.isEnabled().then((isEnabled) => {
+  /*autoLaunch.isEnabled().then((isEnabled) => {
     if (!isEnabled) autoLaunch.enable();
-  });
+  });*/
 
   mainWindow = new BrowserWindow({width: 600,
      height: 680,
@@ -344,6 +345,12 @@ app.whenReady().then(() => {
   tray.on('click',() => {
     mainWindow.show()
   })
+})
+
+app.setLoginItemSettings({
+  openAtLogin: true,
+  name: 'Anitracker',
+  path: app.getPath('exe')
 })
 
 ipcMain.on('notif',(e,name,img,nextEp,siteLink) => {

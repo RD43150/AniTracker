@@ -6,7 +6,8 @@ const {app, BrowserWindow, ipcMain, Notification, Menu, Tray} = electron;
 const path = require('path'),
       fs = require('fs'),
       axios = require('axios'),
-      DATA_FILE_PATH = path.join(__dirname,'../db/data.json') //dev = db/data.json, build = ../db/data.json, I'm too lazy to make it dynamic
+      isDev = require('isdev'),
+      DATA_FILE_PATH = path.join(__dirname,isDev ? 'db/data.json' : '../db/data.json') 
       CONVERT_H_TO_MS = 3600000,
       auto_launch = require('auto-launch')
       //script = `$player = New-Object System.Media.SoundPlayer; $player.SoundLocation='${__dirname}\\src\\assets\\Sounds\\tuturu.wav'; $player.PlaySync()`
@@ -192,7 +193,7 @@ async function resetData(data) {
 function getImg(name,link) {
   return new Promise((resolve,reject) => {
     const fileName = (name.split(' ').join('')) + '.jpg';
-    const fileAddress = path.join(__dirname,'../db/notif-images/' + fileName); //build: ../db/notif-images/, dev: src/assets/Images/, I'm too lazy to make it dynamic
+    const fileAddress = path.join(__dirname,isDev ? 'src/assets/Images/' + filename : '../db/notif-images/' + fileName);
   
     if (fs.existsSync(fileAddress)) {
       resolve(fileAddress)

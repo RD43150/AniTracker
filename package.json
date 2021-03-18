@@ -26,7 +26,7 @@
     },
     "extraResources": [
       "db/**/*"
-    ] 
+    ]
   },
   "keywords": [
     "Electron"
@@ -34,7 +34,8 @@
   "author": "RD43",
   "devDependencies": {
     "electron": "^11.1.1",
-    "electron-builder": "^22.9.1"
+    "electron-builder": "^22.9.1",
+    "isdev": "^1.0.1"
   },
   "dependencies": {
     "auto-launch": "^5.0.5",

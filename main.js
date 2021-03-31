@@ -30,18 +30,18 @@ if (!gotTheLock) {
 
 function createWindow() {
   const screenSize = electron.screen.getPrimaryDisplay().size;
-  /*let autoLaunch = new auto_launch({
+  let autoLaunch = new auto_launch({
     name: 'AniTracker',
     path: app.getPath('exe'),
     isHidden: true
-  });*/
+  });
 
   if (!fs.existsSync(DATA_FILE_PATH))
     createDataFile()
     
-  /*autoLaunch.isEnabled().then((isEnabled) => {
+  autoLaunch.isEnabled().then((isEnabled) => {
     if (!isEnabled) autoLaunch.enable();
-  });*/
+  });
 
   mainWindow = new BrowserWindow({width: 600,
      height: 680,
@@ -66,8 +66,8 @@ function createWindow() {
       mainWindow.hide()
   })
 
-  if (process.argv.indexOf('--hidden') !== -1)
-    mainWindow.hide()
+  //if (process.argv.indexOf('--hidden') !== -1)
+  //  mainWindow.hide()
 }
 
 function createDataFile() {
@@ -194,14 +194,14 @@ async function resetData(data) {
 function getImg(name,link) {
   return new Promise((resolve,reject) => {
     const fileName = (name.split(' ').join('')) + '.jpg';
-    const fileAddress = path.join(__dirname,isDev ? 'src/assets/Images/' + filename : '../db/notif-images/' + fileName);
+    const fileAddress = path.join(__dirname,isDev ? 'src/assets/Images/' + fileName : '../db/notif-images/' + fileName);
   
     if (fs.existsSync(fileAddress)) {
       resolve(fileAddress)
       return;
     }
-    
-    const res = axios({
+
+    axios({
       method: 'GET',
       url: link,
       responseType: 'stream'
@@ -331,6 +331,9 @@ ipcMain.on('log',(e,log) => console.log(log))
 app.on('ready', createWindow);
 
 app.whenReady().then(() => {
+  if (process.platform === 'win32') 
+    app.setAppUserModelId("com.app.aniTracker")
+    
   tray = new Tray(path.join(__dirname, 'src/assets/Images/logo.ico'))
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Exit', type: 'normal', click: () => { 
@@ -346,13 +349,13 @@ app.whenReady().then(() => {
     mainWindow.show()
   })
 })
-
+/*
 app.setLoginItemSettings({
   openAtLogin: true,
   name: 'Anitracker',
   path: app.getPath('exe')
 })
-
+*/
 ipcMain.on('notif',(e,name,img,nextEp,siteLink) => {
   //exec('powershell -c ' + script)
   getImg(name,img).then(img => {

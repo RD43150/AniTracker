@@ -31,13 +31,14 @@ ipcRenderer.on('jsonFileData',(e,data) => {
         </div>  
       `  
 
-      let intIndex = setInterval(() => {
+        let intIndex = setInterval(() => {
         let timeSpan = document.getElementById('time' + aniData.dataID)
 
         if (aniData.episodes === null) 
             aniData.episodes = 99999
         if (aniData.nextAiringEpisode.timeUntilAiring <= 0 && aniData.nextAiringEpisode.episode != aniData.episodes+1) {
             audioDiv.play()
+            ipcRenderer.send('notif',aniData.title.english,aniData.coverImage.medium,aniData.nextAiringEpisode.episode,aniData.siteLink)
             ipcRenderer.send('getJsonFileData',true)
             aniData.nextAiringEpisode.timeUntilAiring = null
             clearInterval(intIndex)

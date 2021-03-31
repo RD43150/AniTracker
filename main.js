@@ -32,8 +32,7 @@ function createWindow() {
   const screenSize = electron.screen.getPrimaryDisplay().size;
   let autoLaunch = new auto_launch({
     name: 'AniTracker',
-    path: app.getPath('exe'),
-    isHidden: true
+    path: app.getPath('exe')
   });
 
   if (!fs.existsSync(DATA_FILE_PATH))
@@ -333,7 +332,7 @@ app.on('ready', createWindow);
 app.whenReady().then(() => {
   if (process.platform === 'win32') 
     app.setAppUserModelId("com.app.aniTracker")
-    
+
   tray = new Tray(path.join(__dirname, 'src/assets/Images/logo.ico'))
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Exit', type: 'normal', click: () => { 

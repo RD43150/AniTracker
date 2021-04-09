@@ -30,17 +30,17 @@ if (!gotTheLock) {
 
 function createWindow() {
   const screenSize = electron.screen.getPrimaryDisplay().size;
-  let autoLaunch = new auto_launch({
+  /*let autoLaunch = new auto_launch({
     name: 'AniTracker',
     path: app.getPath('exe')
-  });
+  });*/
 
   if (!fs.existsSync(DATA_FILE_PATH))
     createDataFile()
     
-  autoLaunch.isEnabled().then((isEnabled) => {
+  /*autoLaunch.isEnabled().then((isEnabled) => {
     if (!isEnabled) autoLaunch.enable();
-  });
+  });*/
 
   mainWindow = new BrowserWindow({width: 600,
      height: 680,
@@ -348,13 +348,13 @@ app.whenReady().then(() => {
     mainWindow.show()
   })
 })
-/*
+
 app.setLoginItemSettings({
   openAtLogin: true,
   name: 'Anitracker',
   path: app.getPath('exe')
 })
-*/
+
 ipcMain.on('notif',(e,name,img,nextEp,siteLink) => {
   //exec('powershell -c ' + script)
   getImg(name,img).then(img => {

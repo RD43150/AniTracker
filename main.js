@@ -1,4 +1,3 @@
-//fix "db/data.json not found", check if startup works and push it as final
 //const { exec } = require('child_process')
 const { shell, ipcRenderer, nativeImage } = require('electron');
 const electron = require('electron');
@@ -30,17 +29,9 @@ if (!gotTheLock) {
 
 function createWindow() {
   const screenSize = electron.screen.getPrimaryDisplay().size;
-  /*let autoLaunch = new auto_launch({
-    name: 'AniTracker',
-    path: app.getPath('exe')
-  });*/
 
   if (!fs.existsSync(DATA_FILE_PATH))
     createDataFile()
-    
-  /*autoLaunch.isEnabled().then((isEnabled) => {
-    if (!isEnabled) autoLaunch.enable();
-  });*/
 
   mainWindow = new BrowserWindow({width: 600,
      height: 680,
@@ -64,9 +55,6 @@ function createWindow() {
       e.preventDefault()
       mainWindow.hide()
   })
-
-  //if (process.argv.indexOf('--hidden') !== -1)
-  //  mainWindow.hide()
 }
 
 function createDataFile() {
@@ -283,9 +271,6 @@ ipcMain.on('addWin',() => {
 })
 
 ipcMain.on('getJsonFileData',async function(e,reset) {
-  //if (!fs.existsSync('./db/data.json'))
-  // createDataFile()
-
   const data = JSON.parse(fs.readFileSync(DATA_FILE_PATH))
   let newData = undefined;
   

@@ -53,8 +53,20 @@ ipcRenderer.on('jsonFileData',(e,data) => {
     }
 })
 
+
+function toUrl(str) {
+    try {
+      url = new URL(str)
+    } catch(e) {
+      console.log("https://" + str)
+      return "https://" + str;
+    }
+    console.log(str)
+    return str;
+  }
+
 function openAddWindow() { ipcRenderer.send('addWin') }
-function openSite(link) { shell.openExternal(link) }
+function openSite(link) { shell.openExternal(toUrl(link)) }
 
 function deleteAni(id) {
     ipcRenderer.send('deleteAni',id)
